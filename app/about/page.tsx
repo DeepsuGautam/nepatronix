@@ -1,5 +1,5 @@
 import { getLists } from "@/ApiRequest/GetData";
-import ClientHolder from "@/Components/Holders/ClientHolder";
+import ClientHolder from "@/components/Holders/ClientHolder";
 import React from "react";
 
 const page = async () => {

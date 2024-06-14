@@ -1,7 +1,7 @@
 import React from "react";
-import ServiceHolder from "@/Components/Holders/ServiceHolder";
+import ServiceHolder from "@/components/Holders/ServiceHolder";
 import { getLists } from "@/ApiRequest/GetData";
-import ServLoader from "@/Components/Loaders/ServLoader";
+import ServLoader from "@/components/Loaders/ServLoader";
 
 const page = async () => {
   const serviceData = await getLists("services", 0);

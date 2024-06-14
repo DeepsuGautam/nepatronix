@@ -1,7 +1,7 @@
 import React from "react";
 import { getLists } from "@/ApiRequest/GetData";
-import BookHolder from "@/Components/Holders/BookHolder";
-import BookLoader from "@/Components/Loaders/BookLoader";
+import BookHolder from "@/components/Holders/BookHolder";
+import BookLoader from "@/components/Loaders/BookLoader";
 
 const page = async () => {
   const serviceData = await getLists("books", 0);

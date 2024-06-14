@@ -1,18 +1,18 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const SlideHolder = dynamic(() => import("@/Components/Slide/SlideHolder"));
-const About = dynamic(()=>import("@/Components/Holders/About"))
-const TopSlide = dynamic(() => import("@/Components/Reusables/TopSlide"));
+const SlideHolder = dynamic(() => import("@/components/Slide/SlideHolder"));
+const About = dynamic(()=>import("@/components/Holders/About"))
+const TopSlide = dynamic(() => import("@/components/Reusables/TopSlide"));
 const ServiceHolder = dynamic(
-  () => import("@/Components/Holders/ServiceHolder")
+  () => import("@/components/Holders/ServiceHolder")
 );
 const ProductHolder = dynamic(
-  () => import("@/Components/Holders/ProductHolder")
+  () => import("@/components/Holders/ProductHolder")
 );
-const Video = dynamic(() => import("@/Components/HomeVideo/Video"));
-const BlogHolder = dynamic(() => import("@/Components/Holders/BlogHolder"));
-const BookHolder = dynamic(()=> import("@/Components/Holders/BookHolder"))
+const Video = dynamic(() => import("@/components/HomeVideo/Video"));
+const BlogHolder = dynamic(() => import("@/components/Holders/BlogHolder"));
+const BookHolder = dynamic(()=> import("@/components/Holders/BookHolder"))
 
 const BACKEND_URL = process.env.NEXT_APP_BACKEND;
 
