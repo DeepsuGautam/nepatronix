@@ -26,6 +26,7 @@ const About = ({ data }: { data: any }) => {
             padding: "20px",
             maxWidth: "1000px",
             margin: "0 auto",
+            textAlign:"center"
           }}
         >
           <b className="text-red-500">ABOUT US</b>
