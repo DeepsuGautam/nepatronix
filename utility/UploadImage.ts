@@ -8,7 +8,7 @@ const genUnique = async (name: string) => {
   return `${timestamp}-${randomString}_${joins}`;
 };
 
-const UploadImage = async (type: string, file: File) => {
+const UploadImage = async (type: string, file: any) => {
   const image: any = file;
   const uniqueName: string = await genUnique(image?.name);
   const createPath: string = path.resolve(
@@ -18,8 +18,8 @@ const UploadImage = async (type: string, file: File) => {
   const fileBuffer: any = Buffer.from(await image?.arrayBuffer());
   try {
     fs.writeFileSync(createPath, fileBuffer);
-  } catch (error) {
-    console.error(error);
+  } catch (error:any) {
+    console.error(error.message);
   }
   return `/${type}/${uniqueName}`
 };

@@ -19,7 +19,7 @@ export const GET = async () => {
     const bookList:any[] = await book.find({}).sort({_id:-1}).limit(8);
 
     const sendableData: {
-      about: any[];
+      about: any;
       services: any[];
       products: any[];
       slides:any[];

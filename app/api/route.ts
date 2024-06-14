@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import path from "path";
 
 export const GET = () => {
   try {
@@ -6,7 +7,8 @@ export const GET = () => {
       success: true,
       msg: "API is working",
     };
-    return NextResponse.json(data);
+    const newPath = path.resolve(process.cwd(), "public");
+    return NextResponse.json({ data: newPath });
   } catch (error: any) {
     console.log(error);
     return NextResponse.json({ msg: "Internal Error" }, { status: 500 });

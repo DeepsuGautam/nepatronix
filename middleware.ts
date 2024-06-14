@@ -9,7 +9,7 @@ const webUrl = process.env.NEXT_APP_BACKEND;
 const middleware = async (req: NextApiRequest) => {
   try {
     const requestedUrl = req.url;
-    if (!requestedUrl?.includes("admin-pannel")) return;
+    if (!requestedUrl?.includes("admin-pannel") && !requestedUrl?.includes("v1/admin")) return;
 
     const cookieStore = cookies();
     const token = cookieStore.get("token");

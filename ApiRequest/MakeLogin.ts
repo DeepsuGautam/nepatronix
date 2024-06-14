@@ -10,6 +10,7 @@ export const handleSubmit = async (data: {
 }) => {
   try {
     const res = await fetch(`${backendUrl}/api/v1/admin`, {
+      cache:"no-store",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +20,7 @@ export const handleSubmit = async (data: {
 
     if (!res.ok) throw new Error("Detected Error in respone");
     const { cookie } = await res.json();
-    await cookies().set("token", cookie);
+    cookies().set("token", cookie);
     return true;
   } catch (error) {
     return false;
