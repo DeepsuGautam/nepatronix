@@ -1,0 +1,82 @@
+.mainNav{
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.726);
+}
+
+.linkNav {
+  width: fit-content;
+  padding: 0rem ;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: 0.25s;
+  color: rgb(95, 95, 95);
+}
+
+.subLinks {
+  position: absolute;
+  padding: 40px;
+  padding-left: 29rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  cursor: default;
+  gap: 3rem;
+  display: none;
+  justify-content: start;
+  top: 65px;
+}
+
+.linkNav:hover .subLinks {
+  display: flex;
+}
+
+.linkNav:hover {
+  color: rgb(0, 119, 255);
+  border-bottom: 3px solid rgb(0, 119, 255);
+}
+
+.subLinker {
+  color: rgb(95, 95, 95);
+  transition: 0.5s;
+  border-bottom: 3px solid transparent;
+}
+
+.subLinker:hover {
+  color: rgb(0, 119, 255);
+  border-bottom: 3px solid rgb(0, 119, 255);
+}
+
+.leftSub{
+    justify-content: flex-end;
+}
+
+.responsive{
+  width: 250px;
+  padding: 20px;
+  left: auto;
+  text-align: center;
+}
+.responsiveParent:hover{
+   border-bottom: transparent;
+}
+
+.responsiveParent:hover .responsive{
+  display: block;
+}
+
+.responsive div{
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+
+.responsive div a{
+  color: rgb(95, 95, 95);
+  transition: 0.5s;
+  border-bottom: 3px solid transparent;
+  text-align: center;
+  width: 100%;
+}

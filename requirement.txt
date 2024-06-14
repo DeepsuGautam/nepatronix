@@ -1,0 +1,18 @@
+1. events
+2. shops
+3.activities - events, -achievements, -classes , --course content
+4 our expert team 
+
+admin
+-attendance
+
+
+
+nvigations 
+about
+team
+services
+
+
+
+//for dashboard
