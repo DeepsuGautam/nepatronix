@@ -1,4 +1,4 @@
-import LinkData from "@/components/Reusables/LinkData";
+import LinkData from "@/Components/Reusables/LinkData";
 import Image from "next/image";
 import React from "react";
 import { FaPen } from "react-icons/fa";

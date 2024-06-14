@@ -1,6 +1,6 @@
 import { getSole } from "@/ApiRequest/GetData";
-import DescriptionBlog from "@/components/BlogPage/DescriptionBlog";
-import TopBlog from "@/components/BlogPage/TopBlog";
+import DescriptionBlog from "@/Components/BlogPage/DescriptionBlog";
+import TopBlog from "@/Components/BlogPage/TopBlog";
 import React from "react";
 
 const page = async ({ params }: { params: any }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { getLists } from "@/ApiRequest/GetData";
-import BlogHolder from "@/components/Holders/BlogHolder";
-import BlogLoader from "@/components/Loaders/BlogLoader";
+import BlogHolder from "@/Components/Holders/BlogHolder";
+import BlogLoader from "@/Components/Loaders/BlogLoader";
 
 const page = async () => {
   const serviceData = await getLists("blogs", 0);

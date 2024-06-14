@@ -1,5 +1,5 @@
 import { getSole } from "@/ApiRequest/GetData";
-import LinkingBack from "@/components/Reusables/LinkingBack";
+import LinkingBack from "@/Components/Reusables/LinkingBack";
 import Image from "next/image";
 import React from "react";
 

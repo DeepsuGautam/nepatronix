@@ -1,6 +1,6 @@
 import { getLists } from '@/ApiRequest/GetData'
-import GalleryHolder from '@/components/Holders/GalleryHolder';
-import GalleryLoader from '@/components/Loaders/GalleryLoader';
+import GalleryHolder from '@/Components/Holders/GalleryHolder';
+import GalleryLoader from '@/Components/Loaders/GalleryLoader';
 import React from 'react'
 
 const page = async() => {
