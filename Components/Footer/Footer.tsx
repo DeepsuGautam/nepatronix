@@ -6,13 +6,21 @@ import FOOTER from "./FOOTER.json";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  console.log(pathname);
+  const inValid: boolean = pathname === "/blogs" || pathname.includes("/admin");
   return (
-    <div className="footer">
+    <div className="footer" style={{display:inValid?"none":"flex"}}>
       {/* logo */}
       <div className="footing">
-        <img src="/mainImages/logo.png" className="logo" alt="NepaTronix Logo" />
+        <img
+          src="/mainImages/logo.png"
+          className="logo"
+          alt="NepaTronix Logo"
+        />
         <br />
         <br />
         © 2024 NepaTronix.

@@ -6,7 +6,7 @@ const ServiceCard = ({ data }: { data: any }) => {
   return (
     <div className="absolute w-full max-w-[350px] h-full min-h-[480px] p-[4rem] bg-[#f5faff] rounded-2xl shadow-lg  hover:shadow-2xl transition-all duration-500 text-center cursor-pointer hover:scale-105">
       <Image
-        src={data?.image}
+        src={`/api/files${data?.image}`}
         alt=""
         width={200}
         height={200}

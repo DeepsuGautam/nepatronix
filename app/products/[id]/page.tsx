@@ -16,7 +16,7 @@ const page = async ({ params }: { params: any }) => {
         <LinkingBack link="/products" text="Back To Products" />
         <br/><br/>
           <Image
-            src={data?.image}
+            src={`/api/files${data?.image}`}
             alt=""
             width={1000}
             height={1000}

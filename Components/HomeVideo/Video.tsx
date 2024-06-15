@@ -20,7 +20,7 @@ const Video = () => {
           objectFit: "cover",
         }}
       >
-        <source src="/videos/video.mp4" type="video/mp4" />
+        <source src="/api/files/variable/video.mp4" type="video/mp4" />
       </video>
       {/* Your content goes here */}
     </div>

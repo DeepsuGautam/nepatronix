@@ -9,7 +9,7 @@ export const deleteImage = async (imgPath: string): Promise<void> => {
 
   try {
     // Resolve the image path relative to the 'public' directory
-    const image = path.resolve(process.cwd(), "public", imgPath.slice(1));
+    const image = path.resolve(process.cwd(), "uploads", imgPath.slice(1));
 
     console.log(`Attempting to delete image at path: ${image}`);
 

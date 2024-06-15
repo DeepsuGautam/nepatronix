@@ -16,12 +16,12 @@ const handleImageUpload = async (
       const uniqueName: string = await genUnique(image?.name);
       const createPath: string = path.resolve(
         process.cwd(),
-        `public/${type}/${uniqueName}`
+        `uploads/${type}/${uniqueName}`
       );
       const fileBuffer: any = Buffer.from(await image?.arrayBuffer());
       try {
         fs.writeFileSync(createPath, fileBuffer);
-        htmlElem.src = `/${type}/${uniqueName}`;
+        htmlElem.src = `/api/files/${type}/${uniqueName}`;
       } catch (error) {
         console.error(error);
       }

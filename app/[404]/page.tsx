@@ -52,7 +52,7 @@ const PageNotFound = () => {
       <h1 style={headingStyle}>404</h1>
       <br/>
       <h2 style={subHeadingStyle}>Page Not Found</h2>
-      <p style={messageStyle}>The page you are looking for might have been removed or is temporarily unavailable due to develiping phase of the website.</p>
+      <p style={messageStyle}>The page you are looking for might have been removed or is temporarily unavailable due to developing phase of the website.</p>
       <Link href="/" style={linkStyle}>
         Go to Homepage
       </Link>

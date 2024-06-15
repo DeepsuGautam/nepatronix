@@ -6,7 +6,7 @@ const About = ({ data }: { data: any }) => {
     <section
       className="w-full h-fit"
       style={{
-        backgroundImage: "url('/relativeImages/aboutBg.jpg')",
+        backgroundImage: "url('/api/files/variable/aboutBg.jpg')",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",

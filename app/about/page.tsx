@@ -12,36 +12,43 @@ const page = async () => {
     >
       <section
         style={{
-          backgroundImage: "url('/relativeImages/aboutBg.jpg')",
+          backgroundImage: "url('/api/files/variable/aboutBg.jpg')",
           width: "100%",
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
       >
-
-        <div style={{width:"100%", padding:"100px 0", backgroundPosition:'center', backgroundSize:"cover", backgroundAttachment:"fixed", color:"white" , background:"linear-gradient(#002d58, transparent)"}}>
-
         <div
           style={{
             width: "100%",
-            padding: "20px",
-            maxWidth: "1000px",
-            margin: "0 auto",
+            padding: "100px 0",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            color: "white",
+            background: "linear-gradient(#002d58, transparent)",
           }}
         >
-          <h1 className="text-8xl font-bold">Who We Are</h1>
-          <br />
+          <div
+            style={{
+              width: "100%",
+              padding: "20px",
+              maxWidth: "1000px",
+              margin: "0 auto",
+            }}
+          >
+            <h1 className="text-8xl font-bold">Who We Are</h1>
+            <br />
 
-          <p className="text-4xl" style={{ lineHeight: "3.5rem" }}>
-            {data?.content}
-          </p>
+            <p className="text-4xl" style={{ lineHeight: "3.5rem" }}>
+              {data?.content}
+            </p>
+          </div>
         </div>
-        </div>
-
       </section>
 
-      <section style={{width:"100%", maxWidth:"1000px", margin:"0 auto"}}>
-      <ClientHolder cards={data?.cards}/>
+      <section style={{ width: "100%", maxWidth: "1000px", margin: "0 auto" }}>
+        <ClientHolder cards={data?.cards} />
       </section>
     </main>
   );

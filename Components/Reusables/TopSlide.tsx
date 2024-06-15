@@ -30,7 +30,7 @@ const TopSlide = ({
       <div className="w-[100%] sm:w-[50%] sm:relative">
         {/* image */}
         <Image
-          src={image}
+          src={`/api/files${image}`}
           alt=""
           width={2000}
           height={1200}

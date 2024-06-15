@@ -15,7 +15,7 @@ const GalleryCard = ({ data }: { data: any }) => {
       }}
     >
       <Image
-        src={data?.image}
+        src={`/api/files${data?.image}`}
         className="rounded-2xl hover:scale-105 transition-all duration-300"
         alt=""
         width={1200}

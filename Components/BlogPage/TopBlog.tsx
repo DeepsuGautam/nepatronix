@@ -11,7 +11,7 @@ const TopBlog = ({
       {/* for image */}
       <div className="">
         <Image
-          src={image}
+          src={`/api/files${image}`}
           alt=""
           width={1000}
           height={1000}

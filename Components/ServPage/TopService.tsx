@@ -13,7 +13,7 @@ const TopService = ({
       {/* for image */}
       <div className="w-fit flex flex-col justify-center">
         <Image
-          src={image}
+          src={`/api/files${image}`}
           alt=""
           width={300}
           height={300}

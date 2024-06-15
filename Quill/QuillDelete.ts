@@ -11,7 +11,7 @@ export const deleteQuillImages = async (content: string) => {
   for (let i = 0; i < noOfImg; i++) {
     let elem = elemArr[i];
     let pathSrc = elem.src;
-    let removable =path.resolve(process.cwd(),"public", pathSrc.substr(1)); // Remove leading '/'
+    let removable =path.resolve(process.cwd(),"uploads", pathSrc?.split("/files/")[1]); // Remove leading '/'
     try {
       fs.unlinkSync(removable);
     } catch (e: any) {

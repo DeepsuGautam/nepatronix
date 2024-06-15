@@ -7,7 +7,7 @@ export const GET = () => {
       success: true,
       msg: "API is working",
     };
-    const newPath = path.resolve(process.cwd(), "public");
+    const newPath = path.join(process.cwd(), "public");
     return NextResponse.json({ data: newPath });
   } catch (error: any) {
     console.log(error);

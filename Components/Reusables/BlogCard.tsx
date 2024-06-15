@@ -7,7 +7,7 @@ const BlogCard = ({data}:{data:any}) => {
     <div className='w-full max-w-[350px] min-h-[550px] relative'>
         <div className='absolute p-[25px] w-full h-full transition-all duration-500 bg-white cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 rounded-2xl'>
         <Image
-          src={data?.image}
+          src={`/api/files${data?.image}`}
           alt=""
           width={400}
           height={400}

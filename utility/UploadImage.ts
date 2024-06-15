@@ -13,15 +13,15 @@ const UploadImage = async (type: string, file: any) => {
   const uniqueName: string = await genUnique(image?.name);
   const createPath: string = path.resolve(
     process.cwd(),
-    `public/${type}/${uniqueName}`
+    `uploads`,type, uniqueName
   );
   const fileBuffer: any = Buffer.from(await image?.arrayBuffer());
   try {
     fs.writeFileSync(createPath, fileBuffer);
-  } catch (error:any) {
+  } catch (error: any) {
     console.error(error.message);
   }
-  return `/${type}/${uniqueName}`
+  return `/${type}/${uniqueName}`;
 };
 
-export {UploadImage};
+export { UploadImage };
