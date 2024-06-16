@@ -24,10 +24,7 @@ export const DELETE = async (req: any) => {
     await ConnectDB();
 
     const requestedUrl = req?.url;
-    if (!requestedUrl) {
-      throw new Error("Invalid URL");
-    }
-
+    
     const idOfData = requestedUrl.split("/").pop();
     if (!idOfData) {
       throw new Error("Invalid ID in URL");
