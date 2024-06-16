@@ -10,13 +10,27 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
   try {
     await ConnectDB();
-    const content = await Unstructured.findOne({ relation: "about" });
-    const servList = await service.find({}).limit(8);
-    const productList = await product.find({}).sort({ _id: -1 }).limit(7);
-    const slideList = await slide.find({}).sort({ _id: -1 });
-    const blogList = await blog.find({}).sort({ _id: -1 }).limit(12);
-    const bookList = await book.find({}).sort({ _id: -1 }).limit(8);
 
+    // Fetch unstructured content related to "about"
+    const content = await Unstructured.findOne({ relation: "about" });
+
+    // Fetch lists of services, products, slides, blogs, and books
+    const servListPromise = service.find({}).limit(8);
+    const productListPromise = product.find({}).sort({ _id: -1 }).limit(7);
+    const slideListPromise = slide.find({}).sort({ _id: -1 });
+    const blogListPromise = blog.find({}).sort({ _id: -1 }).limit(12);
+    const bookListPromise = book.find({}).sort({ _id: -1 }).limit(8);
+
+    // Await all promises concurrently
+    const [servList, productList, slideList, blogList, bookList] = await Promise.all([
+      servListPromise,
+      productListPromise,
+      slideListPromise,
+      blogListPromise,
+      bookListPromise,
+    ]);
+
+    // Construct the data to send in the response
     const sendableData = {
       about: content,
       services: servList,
@@ -26,10 +40,14 @@ export const GET = async () => {
       books: bookList,
     };
 
-    console.log(sendableData)
-
-    return NextResponse.json(sendableData)
+    return new NextResponse(JSON.stringify(sendableData), {
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store",
+      },
+    });
   } catch (error) {
-    return NextResponse.json({ msg: "Internal Error" }, { status: 500 });
+    console.error("Error fetching data:", error);
+    return NextResponse.json({error:"Ïnternal ERROR"},{status:200})
   }
 };

@@ -9,11 +9,12 @@ export const GET = async () => {
     await ConnectDB();
     const header = headers();
     const page: number = parseInt(header.get("page") || "0") || 0;
+    const elems:number = parseInt(header.get("elems") || "12") || 12;
     const data = await book
       .find({})
       .sort({_id:-1})
-      .skip(page * 18)
-      .limit(18);
+      .skip(page * elems)
+      .limit(elems);
     return NextResponse.json(data);
   } catch (error) {
     console.log(error);

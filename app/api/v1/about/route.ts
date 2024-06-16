@@ -9,9 +9,10 @@ export const GET=async()=>{
         const unst : any = await Unstructured.findOne({relation:"about"});
         const cards:any[] = await about.find();
 
-        const sendings:{content:string , cards:any[]} ={
+        const sendings:{content:string , cards:any[], about:any} ={
             content:unst?.content,
-            cards:unst?.cards
+            cards:unst?.cards,
+            about:cards
         }
 
         return NextResponse.json(sendings)

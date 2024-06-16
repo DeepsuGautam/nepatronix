@@ -74,7 +74,8 @@ html{
 
   .galleryDes{
     transition: 0.5s;
-    bottom: -100%
+    bottom: -100%;
+    line-height: 3.5rem;
   }
 
   .galParent:hover .galleryDes{
