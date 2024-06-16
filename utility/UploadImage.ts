@@ -11,7 +11,7 @@ const genUnique = async (name: string) => {
 const UploadImage = async (type: string, file: any) => {
   const image: any = file;
   const uniqueName: string = await genUnique(image?.name);
-  const createPath: string = path.resolve(
+  const createPath: string = path.join(
     process.cwd(),
     `uploads`,type, uniqueName
   );

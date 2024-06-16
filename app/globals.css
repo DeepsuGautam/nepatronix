@@ -71,3 +71,12 @@ html{
   body{
     line-height: 30px;
   }
+
+  .galleryDes{
+    transition: 0.5s;
+    bottom: -100%
+  }
+
+  .galParent:hover .galleryDes{
+    bottom: 0;
+  }

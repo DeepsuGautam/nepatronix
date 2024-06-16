@@ -10,7 +10,7 @@ const LinkMe = ({
   children: ReactNode;
 }) => {
   return (
-    <Link href={link} style={{maxWidth:"500px", width:"100%"}}>
+    <Link href={link} style={{maxWidth:"30rem", width:"100%"}}>
       {children}
     </Link>
   );

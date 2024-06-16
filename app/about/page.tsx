@@ -8,7 +8,7 @@ const page = async () => {
   return (
     <main
       className="w-full"
-      style={{ height: "100vh", paddingTop: "80px", background: "" }}
+      style={{ minHeight: "100vh", paddingTop: "80px", background: "" }}
     >
       <section
         style={{

@@ -1,17 +1,21 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
+import GalDes from "./GalDes";
 
 const GalleryCard = ({ data }: { data: any }) => {
   return (
     <div
-      className="rounded-2xl"
+      className="rounded-2xl galParent"
       style={{
         width: "100%",
-        maxWidth: "500px",
+        maxWidth: "300px",
         position: "relative",
-        height: "700px",
+        height: "40rem",
         cursor: "pointer",
-        background:"gray"
+        background:"gray",
+        overflow:"hidden"
       }}
     >
       <Image
@@ -21,16 +25,13 @@ const GalleryCard = ({ data }: { data: any }) => {
         width={1200}
         height={1200}
         style={{
-          height: "700px",
+          height: "40rem",
           width: "100%",
           objectFit: "cover",
           position: "absolute",
         }}
       />
-
-      <div style={{ width: "0", height: "0", overflow: "hidden" }}>
-        {data?.description}
-      </div>
+      <GalDes data={data}/>
     </div>
   );
 };

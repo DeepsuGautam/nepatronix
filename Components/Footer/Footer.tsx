@@ -17,7 +17,7 @@ const Footer = () => {
       {/* logo */}
       <div className="footing">
         <img
-          src="/mainImages/logo.png"
+          src="/logo.png"
           className="logo"
           alt="NepaTronix Logo"
         />

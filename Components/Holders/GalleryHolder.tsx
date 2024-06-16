@@ -21,9 +21,9 @@ const GalleryHolder = ({
         </>
       )}
 
-      <div className="w-full px-10 flex justify-center flex-wrap" style={{gap:"40px"}}>
+      <div className="w-full px-10 flex justify-center flex-wrap" style={{gap:"4rem",width:"100%"}}>
         {data?.map((item: any, index: number) => (
-          <LinkMe key={index} link={item?.image} >
+          <LinkMe key={index} link={`/api/files${item?.image}`} >
             <GalleryCard
             key={index}
             data={item} // Inline CSS for custom margin

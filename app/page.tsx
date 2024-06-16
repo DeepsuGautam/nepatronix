@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 const SlideHolder = dynamic(() => import("@/Components/Slide/SlideHolder"));
-const About = dynamic(()=>import("@/Components/Holders/About"))
+const About = dynamic(() => import("@/Components/Holders/About"));
 const TopSlide = dynamic(() => import("@/Components/Reusables/TopSlide"));
 const ServiceHolder = dynamic(
   () => import("@/Components/Holders/ServiceHolder")
@@ -12,13 +12,18 @@ const ProductHolder = dynamic(
 );
 const Video = dynamic(() => import("@/Components/HomeVideo/Video"));
 const BlogHolder = dynamic(() => import("@/Components/Holders/BlogHolder"));
-const BookHolder = dynamic(()=> import("@/Components/Holders/BookHolder"))
+const BookHolder = dynamic(() => import("@/Components/Holders/BookHolder"));
 
-const BACKEND_URL = process.env.NEXT_APP_BACKEND;
+const url = process.env.NEXT_APP_BACKEND;
+const page = async () => {
 
-const Home = async () => {
-  const res = await fetch(`${BACKEND_URL}/api/v1`, { cache: "no-store" });
-  const homeData = await res.json();
+  const res: any = await fetch(`${url}/api/v1`, {
+    cache: "no-store",
+  });
+
+  const homeData: any = await res.json();
+
+  console.log(homeData);
 
   return (
     <main className="mainBox">
@@ -42,9 +47,7 @@ const Home = async () => {
         </div>
       </SlideHolder>
 
-
-
-      <About data={homeData?.about}/>
+      <About data={homeData?.about} />
 
       {/* making service section */}
       <ServiceHolder
@@ -69,9 +72,13 @@ const Home = async () => {
         data={homeData?.blogs}
       />
 
-      <BookHolder isInfiniteScroll={false} isPage={false} data={homeData?.books}/>
+      <BookHolder
+        isInfiniteScroll={false}
+        isPage={false}
+        data={homeData?.books}
+      />
     </main>
   );
 };
 
-export default Home;
+export default page;
