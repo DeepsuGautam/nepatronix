@@ -8,10 +8,11 @@ export const DelData=async(type:string, id:string)=>{
             cache:"no-store",
             method:"DELETE"
         });
-        if(res.ok){
+        if(res?.ok){
            return true;
         }else{
-            throw new Error("Failed To Delete")
+            const msg = await res.json();
+            throw new Error(msg?.message)
         }
     }catch(err:any){
         return false;
