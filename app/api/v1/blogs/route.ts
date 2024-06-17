@@ -3,17 +3,17 @@ import { handleQuillReq } from "@/Quill/QuillServer";
 import { UploadImage } from "@/utility/UploadImage";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import blog from "@/models/blog"
+import blog from "@/models/blog";
 
 export const GET = async () => {
   try {
     await ConnectDB();
     const header = headers();
     const page: number = parseInt(header.get("page") || "0") || 0;
-    const elems:number = parseInt(header.get("elems") || "12") || 12;
+    const elems: number = parseInt(header.get("elems") || "18") || 18;
     const data = await blog
       .find({})
-      .sort({_id:-1})
+      .sort({ _id: -1 })
       .skip(page * elems)
       .limit(elems);
     return NextResponse.json(data);
@@ -26,13 +26,13 @@ export const GET = async () => {
 export const POST = async (req: any) => {
   try {
     await ConnectDB();
-    const form :any= await req.formData();
+    const form: any = await req.formData();
 
-    const title:string = form.get("title");
-    const cover:File = form.get("cover");
-    const description:string = form.get("description");
+    const title: string = form.get("title");
+    const cover: File = form.get("cover");
+    const description: string = form.get("description");
 
-    const coverImage:string = await UploadImage("blogs", cover)
+    const coverImage: string = await UploadImage("blogs", cover);
 
     const content = await handleQuillReq(form, "blogs");
     const blogs = new blog({

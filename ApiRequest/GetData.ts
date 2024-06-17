@@ -2,12 +2,13 @@
 
 const url = process.env.NEXT_APP_BACKEND ;
 
-const getLists = async (type: string, page: number) => {
+const getLists = async (type: string, page: number, elems:any) => {
   try {
     const res: any = await fetch(`${url}/api/v1/${type}`, {
       cache:"no-store",
       headers: {
         page: JSON.stringify(page),
+        elems: JSON.stringify(elems),
       },
     });
     const data = await res.json();

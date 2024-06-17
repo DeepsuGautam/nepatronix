@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import { postData } from "@/ApiRequest/PostReqs";
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -7,6 +8,19 @@ import { MdEmail } from "react-icons/md";
 // #bb6ce6
 
 const page = () => {
+  const submitContact = async (e: any) => {
+    const target = e?.target;
+    const contactData = {
+      fName: target?.fName?.value,
+      lName: target?.lName?.value,
+      email: target?.email?.value,
+      found: target?.found?.value,
+      message: target?.message?.value,
+    };
+    const returns: boolean = await postData(contactData, "contact");
+    if(returns) return alert("Message Sent Successfully!")
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-t pt-[220px] pb-[140px] from-[#bb6ce6] to-[#0d0628] flex flex-wrap justify-around bg-fixed">
       {/* make contact */}
@@ -23,8 +37,8 @@ const page = () => {
         </h1>
         <br />
         <p className="text-[16px] text-white" style={{ width: "90%" }}>
-          We&apos;re here to help and answer any questions you might have. We will
-          answer your inquries in a maximum of 48 hours.
+          We&apos;re here to help and answer any questions you might have. We
+          will answer your inquries in a maximum of 48 hours.
         </p>
         <br />
         <ul className="text-[16px] text-white" style={{ listStyle: "none" }}>
@@ -50,7 +64,7 @@ const page = () => {
         </ul>
       </div>
       {/* input */}
-      <form
+      <form onSubmit={submitContact}
         className="w-full h-fit p-[4rem] flex  flex-wrap rounded-2xl"
         style={{ maxWidth: "80rem", gap: "4rem" }}
       >
@@ -127,7 +141,7 @@ const page = () => {
             padding: "20px 0",
           }}
           aria-required="true"
-          id="howDidYouFindUs"
+          id="found"
         />
         <input
           type="text"

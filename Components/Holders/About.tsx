@@ -1,7 +1,9 @@
 import React from "react";
 import ClientHolder from "./ClientHolder";
+import { getLists } from "@/ApiRequest/GetData";
 
-const About = ({ data }: { data: any }) => {
+const About = async() => {
+  const data = await getLists("about", 0, 0);
   return (
     <section
       className="w-full h-fit"

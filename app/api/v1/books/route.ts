@@ -9,7 +9,7 @@ export const GET = async () => {
     await ConnectDB();
     const header = headers();
     const page: number = parseInt(header.get("page") || "0") || 0;
-    const elems:number = parseInt(header.get("elems") || "12") || 12;
+    const elems:number = parseInt(header.get("elems") || "18") || 18;
     const data = await book
       .find({})
       .sort({_id:-1})

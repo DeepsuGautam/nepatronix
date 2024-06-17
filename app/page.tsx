@@ -1,67 +1,29 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import HomeServ from "@/Components/homeComps/HomeServ";
+import HomeProducts from "@/Components/homeComps/HomeProducts";
 
 const SlideHolder = dynamic(() => import("@/Components/Slide/SlideHolder"));
 const About = dynamic(() => import("@/Components/Holders/About"));
-const TopSlide = dynamic(() => import("@/Components/Reusables/TopSlide"));
-const ServiceHolder = dynamic(
-  () => import("@/Components/Holders/ServiceHolder")
-);
 const ProductHolder = dynamic(
   () => import("@/Components/Holders/ProductHolder")
 );
 const Video = dynamic(() => import("@/Components/HomeVideo/Video"));
 const BlogHolder = dynamic(() => import("@/Components/Holders/BlogHolder"));
 const BookHolder = dynamic(() => import("@/Components/Holders/BookHolder"));
-
-const url = process.env.NEXT_APP_BACKEND;
 const page = async () => {
-
-  const res: any = await fetch(`${url}/api/v1`, {
-    cache: "no-store",
-  });
-
-  const homeData: any = await res.json();
-
-  console.log(homeData);
-
   return (
     <main className="mainBox">
       {/* pages */}
-      <SlideHolder length={homeData?.slides?.length}>
-        <div
-          className="innerSlide"
-          style={{
-            width: "100%",
-            minHeight: "calc(100vh - 8rem)",
-            display: "flex",
-          }}
-        >
-          {homeData?.slides?.map((data: any, index: number) => (
-            <TopSlide
-              slideData={data}
-              width={`calc(100% / ${homeData?.slides?.length})`}
-              key={index}
-            />
-          ))}
-        </div>
-      </SlideHolder>
+      <SlideHolder />
 
-      <About data={homeData?.about} />
+      <About />
 
       {/* making service section */}
-      <ServiceHolder
-        isInfiniteScroll={false}
-        isPage={false}
-        data={homeData?.services}
-      />
+      <HomeServ />
 
       {/* making product */}
-      <ProductHolder
-        isInfiniteScroll={false}
-        isPage={false}
-        data={homeData?.products}
-      />
+      <HomeProducts />
 
       {/* show video */}
       <Video />
