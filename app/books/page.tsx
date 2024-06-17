@@ -4,7 +4,7 @@ import BookHolder from "@/Components/Holders/BookHolder";
 import BookLoader from "@/Components/Loaders/BookLoader";
 
 const page = async () => {
-  const serviceData = await getLists("books", 0);
+  const serviceData = await getLists("books", 0, null);
 
   return (
     <main className="pt-[8rem] ">

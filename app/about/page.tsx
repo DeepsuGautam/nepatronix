@@ -3,7 +3,7 @@ import ClientHolder from "@/Components/Holders/ClientHolder";
 import React from "react";
 
 const page = async () => {
-  const data = await getLists("about", 0);
+  const data = await getLists("about", 0, null);
 
   return (
     <main

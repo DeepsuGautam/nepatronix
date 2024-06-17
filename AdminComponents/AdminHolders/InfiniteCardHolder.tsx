@@ -10,7 +10,7 @@ const InfiniteCardHolder = ({ type }: { type: string }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const newData = await getLists(type, index);
+      const newData = await getLists(type, index, null);
       if (Array.isArray(newData) && newData.length > 0) {
         setIndex((prev: number) => prev + 1);
         setData((prev: any[]) => [...prev, ...newData]);

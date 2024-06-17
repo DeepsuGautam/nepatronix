@@ -14,7 +14,7 @@ const ProductLoader = () => {
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const fetched = await getLists("services", index);
+        const fetched = await getLists("services", index, 18);
         setIndex((prev) => prev + 1);
         setData((prev: any) => [...prev, ...fetched]);
       }

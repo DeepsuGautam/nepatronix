@@ -13,7 +13,7 @@ const GalleryLoader = () => {
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const fetched = await getLists("gallery", index);
+        const fetched = await getLists("gallery", index, 18);
         setIndex((prev) => prev + 1);
         setData((prev: any) => [...prev, ...fetched]);
       }

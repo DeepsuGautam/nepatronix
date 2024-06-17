@@ -8,23 +8,23 @@ import TopSlide from "../Reusables/TopSlide";
 const SlideHolder = () => {
   const [index, setIndex] = useState(0);
 
-  const ref: any | null = useRef(null);
+  const ref = useRef<any>(null);
   const [data, setData] = useState([]);
 
-  useEffect(()=>{
-    const getData =async()=>{
+  useEffect(() => {
+    const getData = async () => {
       const setDatas = await getLists("slides", 0, 0);
       return setData(setDatas);
-    }
-    getData()
-  }, [])
+    };
+    getData();
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      return ref?.current.click();
-    }, 5000);
-
     if (data?.length > 0) {
+      const interval = setInterval(() => {
+        return ref?.current?.click();
+      }, 5000);
+
       return () => {
         clearInterval(interval);
       };
@@ -49,9 +49,9 @@ const SlideHolder = () => {
             display: "flex",
           }}
         >
-          {data?.map((data: any, index: number) => (
+          {data?.map((item: any, index: number) => (
             <TopSlide
-              slideData={data}
+              slideData={item}
               width={`calc(100% / ${data?.length})`}
               key={index}
             />

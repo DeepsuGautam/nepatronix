@@ -3,7 +3,7 @@ import React from "react";
 import EditableCard from "../Cards/EditableCard";
 
 const PreCardHolder = async ({ type }: { type: string }) => {
-  const data = await getLists(type, 0);
+  const data = await getLists(type, 0, 18);
 
   return (
     <div

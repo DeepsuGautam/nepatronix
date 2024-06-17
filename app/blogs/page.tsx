@@ -4,7 +4,7 @@ import BlogHolder from "@/Components/Holders/BlogHolder";
 import BlogLoader from "@/Components/Loaders/BlogLoader";
 
 const page = async () => {
-  const serviceData = await getLists("blogs", 0);
+  const serviceData = await getLists("blogs", 0, 18);
 
   return (
     <main className="pt-[8rem] ">

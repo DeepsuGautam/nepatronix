@@ -1,21 +1,27 @@
 import { getLists } from "@/ApiRequest/GetData";
 import React from "react";
-import LinkData from "../Reusables/LinkData";
-import ServiceCard from "../Reusables/ServiceCard";
 import ThemeButton from "../Reusables/ThemeButton";
+import ProductCard from "../Reusables/ProductCard";
 
 const HomeProducts = async () => {
-  const data = await getLists("services", 0, 8);
+  const data = await getLists("products", 0, 8);
 
   return (
-    <section className="w-full py-[15px] text-[20px] px-[20px] bg-[#daeeff] text-center">
-      <div className="w-full flex justify-center gap-[30px] flex-wrap">
-        {Array.isArray(data) &&
-          data?.map((item, idx) => (
-            <LinkData link={`/services/${item._id}`} key={idx}>
-              <ServiceCard key={idx} data={item} />
-            </LinkData>
-          ))}
+    <section className="w-full py-[15px] text-[20px]  bg-[#fff4f4] text-center">
+      <>
+        <br />
+        <br />
+        <h1 className="font-bold text-8xl text-[#2e2e2e]">
+          <span className="text-[#ff5050]">Our</span> Products
+        </h1>
+        <br />
+        <br />
+      </>
+
+      <div className="w-full px-[40px] flex justify-center gap-[30px] flex-wrap">
+        {data?.map((item: any, index: number) => (
+          <ProductCard key={index} data={item} />
+        ))}
       </div>
       <>
         <br />

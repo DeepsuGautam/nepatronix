@@ -4,7 +4,7 @@ import { getLists } from "@/ApiRequest/GetData";
 import ServLoader from "@/Components/Loaders/ServLoader";
 
 const page = async () => {
-  const serviceData = await getLists("services", 0);
+  const serviceData = await getLists("services", 0, null);
 
   return (
     <main className="pt-[8rem] ">

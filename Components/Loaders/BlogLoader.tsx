@@ -14,7 +14,7 @@ const BlogLoader = () => {
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const fetched = await getLists("blogs", index);
+        const fetched = await getLists("blogs", index, 18);
         setIndex((prev) => prev + 1);
         setData((prev: any) => [...prev, ...fetched]);
       }

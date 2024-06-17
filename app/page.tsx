@@ -1,17 +1,16 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import HomeServ from "@/Components/homeComps/HomeServ";
-import HomeProducts from "@/Components/homeComps/HomeProducts";
 
+// Dynamic imports for all components
+const HomeServ = dynamic(() => import("@/Components/homeComps/HomeServ"));
+const HomeProducts = dynamic(() => import("@/Components/homeComps/HomeProducts"));
+const HomeBlog = dynamic(() => import("@/Components/homeComps/HomeBlog"));
+const HomeBook = dynamic(() => import("@/Components/homeComps/HomeBook"));
 const SlideHolder = dynamic(() => import("@/Components/Slide/SlideHolder"));
 const About = dynamic(() => import("@/Components/Holders/About"));
-const ProductHolder = dynamic(
-  () => import("@/Components/Holders/ProductHolder")
-);
 const Video = dynamic(() => import("@/Components/HomeVideo/Video"));
-const BlogHolder = dynamic(() => import("@/Components/Holders/BlogHolder"));
-const BookHolder = dynamic(() => import("@/Components/Holders/BookHolder"));
-const page = async () => {
+
+const Page = async () => {
   return (
     <main className="mainBox">
       {/* pages */}
@@ -28,19 +27,10 @@ const page = async () => {
       {/* show video */}
       <Video />
 
-      <BlogHolder
-        isInfiniteScroll={false}
-        isPage={false}
-        data={homeData?.blogs}
-      />
-
-      <BookHolder
-        isInfiniteScroll={false}
-        isPage={false}
-        data={homeData?.books}
-      />
+      <HomeBlog />
+      <HomeBook />
     </main>
   );
 };
 
-export default page;
+export default Page;
