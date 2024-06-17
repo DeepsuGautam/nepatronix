@@ -10,9 +10,10 @@ export const deleteQuillImages = async (content: string) => {
 
   for (let i = 0; i < noOfImg; i++) {
     let elem = elemArr[i];
-    let pathSrc = elem.src;
-    let removable =path.resolve(process.cwd(),"uploads", pathSrc?.split("/files/")[1]); // Remove leading '/'
+    let pathSrc = await elem.src.split("api/files/")[1];
+    console.log(pathSrc); // Remove leading '/'
     try {
+      let removable = path.resolve(process.cwd(), "uploads", pathSrc);
       fs.unlinkSync(removable);
     } catch (e: any) {
       console.error(e.message);
