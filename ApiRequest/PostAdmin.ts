@@ -18,4 +18,20 @@ const postAdminData = async (formData: any, type: string) => {
   }
 };
 
-export { postAdminData };
+const putAdmin = async (formData: any, type: string, id:string) => {
+  try {
+    const res = await fetch(`${url}/api/v1/${type}/${id}`, {
+      cache: "no-store",
+      method: "PUT",
+      body: formData,
+    });
+
+    if (!res.ok) throw new Error("Response Error!");
+    return true;
+  } catch (e: any) {
+    console.log(e.message);
+    return false;
+  }
+};
+
+export { postAdminData, putAdmin };

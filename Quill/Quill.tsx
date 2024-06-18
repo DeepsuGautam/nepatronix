@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useEffect, useRef, useState } from "react";
 import { makeBold, makeColor, makeItalic, makeTextSize } from "./Functions";
 import { FaBold, FaImage, FaItalic } from "react-icons/fa";
 
-const Quill = ({ contentEdit, imagesEdit }: any) => {
+const Quill = ({initial, contentEdit, imagesEdit }: any) => {
   const [content, setContent] = useState<string>("");
 
   const [images, setImages] = useState<any[]>([]);
@@ -20,6 +20,10 @@ const Quill = ({ contentEdit, imagesEdit }: any) => {
     const data = dataRef?.current?.innerHTML;
     setContent(data);
   };
+
+  useEffect(()=>{
+    dataRef.current.innerHTML = initial;
+  },[initial])
 
   useEffect(() => {
     const addInnerHtml = async () => {

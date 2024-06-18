@@ -4,7 +4,7 @@ import path from "path";
 const genUnique = async (name: string) => {
   const timestamp = Date.now().toString(36); // Convert timestamp to base36 string
   const randomString = Math.random().toString(36).substring(2, 8); // Generate random string
-  const joins = name.split(" ").join("_");
+  const joins = name?.split(" ").join("_");
   return `${timestamp}-${randomString}_${joins}`;
 };
 

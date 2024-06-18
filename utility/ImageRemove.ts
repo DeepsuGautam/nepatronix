@@ -24,4 +24,5 @@ export const deleteImage = async (imgPath: string): Promise<void> => {
   } catch (error: any) {
     console.error("Error deleting image:", error.message);
   }
+  return;
 };
