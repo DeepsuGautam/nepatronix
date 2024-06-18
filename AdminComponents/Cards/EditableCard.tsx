@@ -12,7 +12,7 @@ const EditableCard = ({ data, type }: { data: any; type: string }) => {
     >
       <center>
         <Image
-          src={`/api/files${data?.image}`}
+          src={`/api/files${data?.image || data?.cover}`}
           alt=""
           width={100}
           height={100}

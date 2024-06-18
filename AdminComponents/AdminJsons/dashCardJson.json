@@ -25,8 +25,8 @@
         "image":"/admin/time-management.png"
     },
     {
-        "title": "Achievements",
-        "link": "/admin-pannel/achievements",
-        "image":"/admin/badge.png"
+        "title": "Events",
+        "link": "/admin-pannel/events",
+        "image":"/admin/calendar.png"
     }
 ]

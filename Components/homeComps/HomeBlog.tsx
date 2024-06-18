@@ -26,7 +26,7 @@ const HomeBlog = async () => {
       <>
         <br />
         <br />
-        <ThemeButton style={{}} text="See All Services" link="/services" />
+        <ThemeButton style={{}} text="See All Blogs" link="/blogs" />
         <br />
         <br />
       </>

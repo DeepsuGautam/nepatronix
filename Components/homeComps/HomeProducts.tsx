@@ -26,7 +26,7 @@ const HomeProducts = async () => {
       <>
         <br />
         <br />
-        <ThemeButton style={{}} text="See All Services" link="/services" />
+        <ThemeButton style={{}} text="See All Products" link="/products" />
         <br />
         <br />
       </>
