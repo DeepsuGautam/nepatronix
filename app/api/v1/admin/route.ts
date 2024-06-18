@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { isValidObjectId } from "mongoose";
 import users from "@/models/users";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import ConnectDB from "@/config/ConnectDB";
 const pass: any = process.env.NEXT_APP_TOKEN;
 
