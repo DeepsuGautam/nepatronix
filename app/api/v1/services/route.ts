@@ -10,7 +10,7 @@ export const GET = async () => {
     await ConnectDB();
     const header = headers();
     const page: number = parseInt(header.get("page") || "0") || 0;
-    const elems: number = parseInt(header.get("elems") || "18") || 18;
+    const elems: number = parseInt(header.get("elems") || "12") || 12;
     const data = await service
       .find({})
       .skip(page * elems)
