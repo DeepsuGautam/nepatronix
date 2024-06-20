@@ -32,7 +32,7 @@ const AddNewProduct = () => {
     //post reqs
     const formReq: boolean = await postAdminData(newFormData, "products");
     if (formReq) {
-      alert("Blog Added Successfully!");
+      alert("Product Added Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");

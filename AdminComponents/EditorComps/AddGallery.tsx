@@ -20,7 +20,7 @@ const AddGallery = () => {
     //post reqs
     const formReq: boolean = await postAdminData(newFormData, "gallery");
     if (formReq) {
-      alert("Blog Added Successfully!");
+      alert("Image Added Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");
@@ -67,7 +67,7 @@ const AddGallery = () => {
           className="rounded-2xl resize-none"
           style={{
             width: "100%",
-            height:"500px",
+            height: "500px",
             maxWidth: "800px",
             margin: " 0 auto",
             padding: "10px",
@@ -77,7 +77,7 @@ const AddGallery = () => {
           placeholder="Enter Title Of Image"
         />
 
-<br />
+        <br />
         <button
           type="submit"
           className="w-full bg-blue-400 hover:shadow-xl transition-all duration-300"

@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Quill from "@/Quill/Quill";
-import { postAdminData } from "@/ApiRequest/PostAdmin";
+import { postAdminData, putAdmin } from "@/ApiRequest/PostAdmin";
 import ProductImage from "./AddComps/ProductImage";
 import { FaTrash } from "react-icons/fa";
 import Image from "next/image";
+import EditProductImage from "./EditorComp/EditProductImage";
 
-const AddNewShop = () => {
+const EditShop = ({ data }: { data: any }) => {
   const [image, setImage] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -20,16 +21,25 @@ const AddNewShop = () => {
   const [icon, setIcon] = useState();
   const [iconBlob, setIconBlob] = useState("");
 
+  useEffect(() => {
+    if (data) {
+      setTitle(data?.title);
+      setDescription(data?.description);
+      setPrice(data?.price);
+      setTags(data?.tags);
+      setProductNo(data?.productNo);
+      setComponents(data?.components);
+    }
+  }, [data]);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (
-      !image ||
       !title ||
       !description ||
-      !content ||
+      (!content && !data?.content) ||
       components.length < 1 ||
-      !price ||
-      !icon
+      !price
     )
       return alert("Enter All Data");
     const newFormData: any = new FormData();
@@ -51,12 +61,12 @@ const AddNewShop = () => {
       }
     }
     //post reqs
-    const formReq: boolean = await postAdminData(newFormData, "shop");
+    const formReq: boolean = await putAdmin(newFormData, "shop", data?._id);
     if (formReq) {
-      alert("Item Added Successfully!");
+      alert("Shop Item Edited Successfully!");
       return window.location.reload();
     } else {
-      return alert("Failed to add Data!");
+      return alert("Failed to edit Data!");
     }
   };
 
@@ -96,7 +106,7 @@ const AddNewShop = () => {
         style={{ gap: "20px" }}
       >
         {/* image */}
-        <ProductImage setImage={setImage} />
+        <EditProductImage setImage={setImage} oldImage={data?.image} />
 
         {/* for details */}
         <div style={{ width: "500px", padding: "20px" }}>
@@ -191,9 +201,10 @@ const AddNewShop = () => {
             onClick={() => {
               iconRef?.current?.click();
             }}
+            style={{ gap: "20px" }}
           >
             <Image
-              src={iconBlob || "/relativeImages/add.png"}
+              src={iconBlob || `/api/files${data?.icon}`}
               height={75}
               width={75}
               alt=""
@@ -257,7 +268,11 @@ const AddNewShop = () => {
       </div>
       <br />
       <br />
-      <Quill initial={""} contentEdit={setContent} imagesEdit={setImages} />
+      <Quill
+        initial={data?.content}
+        contentEdit={setContent}
+        imagesEdit={setImages}
+      />
 
       <center>
         <button
@@ -280,4 +295,4 @@ const AddNewShop = () => {
   );
 };
 
-export default AddNewShop;
+export default EditShop;

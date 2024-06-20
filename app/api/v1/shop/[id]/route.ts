@@ -40,9 +40,9 @@ export const DELETE = async (req: any) => {
       throw new Error("Data Not Found!");
     }
 
-    // delete image 
+    // delete image
     await deleteImage(data.image);
-    await deleteImage(data.icon)
+    await deleteImage(data.icon);
     await deleteQuillImages(data.content);
 
     // delete from db
@@ -79,14 +79,23 @@ export const PUT = async (req: any) => {
 
     const title: string = form.get("title");
     const cover: any = form.get("cover");
+    const icon: any = form.get("icon");
     const description: string = form.get("description");
-
-    console.log(cover);
+    const price: string = form.get("price");
+    const tags: string = form.get("tags");
+    const tagList: string[] = tags?.split(" ");
+    const productNo: string = form.get("productNo");
+    const comp: string = form.get("components");
 
     if (cover && cover !== "undefined" && cover.size > 0) {
       await deleteImage(data?.image);
       const coverImage: string = await UploadImage("shops", cover);
       data.image = coverImage;
+    }
+    if (icon && icon !== "undefined" && icon.size > 0) {
+      await deleteImage(data?.image);
+      const iconImage: string = await UploadImage("shops", icon);
+      data.icon = iconImage;
     }
 
     const newContentExist = form.get("content");
@@ -96,6 +105,10 @@ export const PUT = async (req: any) => {
     }
     data.title = title;
     data.description = description;
+    data.tags = tagList;
+    data.price = price;
+    data.productNo = productNo;
+    data.components = JSON.parse(comp);
 
     await data.save();
 

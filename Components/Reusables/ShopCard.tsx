@@ -33,7 +33,7 @@ const ShopCard = ({ data }: { data: any }) => {
       <div
         className="bg-[#c4ec65]"
         style={{
-          width: "95%",
+          width: "100%",
           height: "650px",
           paddingTop: "200px",
           margin: "0 auto",
@@ -47,7 +47,7 @@ const ShopCard = ({ data }: { data: any }) => {
             className="customScroll"
             style={{
               padding: "10px",
-              height: "290px",
+              height: "260px",
               overflowY: "scroll"
             }}
           >
@@ -56,6 +56,8 @@ const ShopCard = ({ data }: { data: any }) => {
             ))}
           </ul>
         </div>
+        <br/>
+        <h1 className="text-[24px] font-bold text-black">NRs.{data?.price}</h1>
         <ThemeButton2
           link={`/shop/${data?._id}`}
           text="Order Now"

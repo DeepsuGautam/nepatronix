@@ -33,7 +33,7 @@ const AddNewEvents = () => {
     //post reqs
     const formReq: boolean = await postAdminData(newFormData, "events");
     if (formReq) {
-      alert("Blog Added Successfully!");
+      alert("Event Added Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");
