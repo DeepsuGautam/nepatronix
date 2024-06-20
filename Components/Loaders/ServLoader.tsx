@@ -14,7 +14,7 @@ const ServLoader = () => {
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const fetched = await getLists("services", index, 18);
+        const fetched = await getLists("services", index, 12);
         setIndex((prev) => prev + 1);
         setData((prev: any) => [...prev, ...fetched]);
       }

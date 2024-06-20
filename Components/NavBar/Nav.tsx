@@ -6,14 +6,14 @@ import { RiMenu3Line } from "react-icons/ri";
 
 const Nav = () => {
   return (
-    <header className="bg-white fixed h-[80px] p-[15px] top-0 left-0 right-0 flex  justify-between z-[10] lg:pl-[8rem] lg:pr-[8rem] mainNav">
+    <header className="bg-white fixed h-[80px] p-[15px] top-0 left-0 right-0 flex  justify-between z-[10] xl:pl-[8rem] xl:pr-[8rem] mainNav">
       {/* first components */}
       <nav className="w-fit h-fit gap-[25px] flex">
         {/* logo */}
         <Linker link="/" child={<Logo />} />
 
         {/* making link */}
-        <button className="linkNav btnHover lg:block hidden">
+        <button className="linkNav btnHover xl:block hidden">
           Who We Are
           <div className="subLinks">
             <Linker link="/about" child={"About NepaTronix"} />
@@ -22,7 +22,7 @@ const Nav = () => {
         </button>
 
         {/* for services */}
-        <button className="linkNav btnHover  lg:block hidden">
+        <button className="linkNav btnHover  xl:block hidden">
           What We DO
           <div className="subLinks">
             <Linker link="/services" child={"Our Services"} />
@@ -31,16 +31,16 @@ const Nav = () => {
         </button>
 
         {/* main Linker */}
-        <button className="linkNav btnHover lg:block hidden">
+        <button className="linkNav btnHover xl:block hidden">
           <Linker link="/blogs" child={"Blogs"} />
         </button>
-        <button className="linkNav btnHover lg:block hidden">
+        <button className="linkNav btnHover xl:block hidden">
           <Linker link="/books" child={"Books"} />
         </button>
       </nav>
 
       {/* second component */}
-      <nav className="w-fit h-fit gap-[25px]  lg:flex hidden">
+      <nav className="w-fit h-fit gap-[25px]  xl:flex hidden">
         <button className="linkNav btnHover">
           <Linker link="/shop" child={"Shop"} />
         </button>
@@ -61,7 +61,7 @@ const Nav = () => {
       </nav>
 
       {/* responsive */}
-      <nav className="w-fit block lg:hidden">
+      <nav className="w-fit block xl:hidden">
         <button
           className="linkNav btnHover responsiveParent"
           style={{ height: "50px" }}

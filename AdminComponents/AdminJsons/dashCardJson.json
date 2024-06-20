@@ -1,32 +1,37 @@
 [
-    {
-        "title": "Services",
-        "link": "/admin-pannel/services",
-        "image":"/admin/service.png"
-    },
-    {
-        "title": "Products",
-        "link": "/admin-pannel/products",
-        "image":"/admin/cubes.png"
-    },
-    {
-        "title": "Blogs",
-        "link": "/admin-pannel/blogs",
-        "image":"/admin/blog.png"
-    },
-    {
-        "title": "Books",
-        "link": "/admin-pannel/books",
-        "image":"/admin/books.png"
-    },
-    {
-        "title": "Gallery",
-        "link": "/admin-pannel/gallery",
-        "image":"/admin/time-management.png"
-    },
-    {
-        "title": "Events",
-        "link": "/admin-pannel/events",
-        "image":"/admin/calendar.png"
-    }
+  {
+    "title": "Slides",
+    "link": "/admin-pannel/slides",
+    "image": "/admin/gallery.png"
+  },
+  {
+    "title": "Services",
+    "link": "/admin-pannel/services",
+    "image": "/admin/service.png"
+  },
+  {
+    "title": "Products",
+    "link": "/admin-pannel/products",
+    "image": "/admin/cubes.png"
+  },
+  {
+    "title": "Blogs",
+    "link": "/admin-pannel/blogs",
+    "image": "/admin/blog.png"
+  },
+  {
+    "title": "Books",
+    "link": "/admin-pannel/books",
+    "image": "/admin/books.png"
+  },
+  {
+    "title": "Events",
+    "link": "/admin-pannel/events",
+    "image": "/admin/calendar.png"
+  },
+  {
+    "title": "Gallery",
+    "link": "/admin-pannel/gallery",
+    "image": "/admin/time-management.png"
+  }
 ]

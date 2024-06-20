@@ -1,9 +1,10 @@
 "use client";
+
 import { getLists } from "@/ApiRequest/GetData";
 import React, { useEffect, useState } from "react";
-import GalleryHolder from "../Holders/GalleryHolder";
+import ShopHolder from "../Holders/ShopHolder";
 
-const GalleryLoader = () => {
+const ShopLoader = () => {
   const [data, setData] = useState<any>([]);
   const [index, setIndex] = useState<number>(1);
 
@@ -13,7 +14,7 @@ const GalleryLoader = () => {
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const fetched = await getLists("gallery", index, 12);
+        const fetched = await getLists("shop", index, 12);
         setIndex((prev) => prev + 1);
         setData((prev: any) => [...prev, ...fetched]);
       }
@@ -21,7 +22,7 @@ const GalleryLoader = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [index]);
-  return <GalleryHolder isPage={true} isInfiniteScroll={true} data={data} />;
+  return <ShopHolder isPage={true} isInfiniteScroll={true} data={data} />;
 };
 
-export default GalleryLoader;
+export default ShopLoader;

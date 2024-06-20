@@ -2,85 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
-@media screen and (max-width:1600px) {
-    html{
-        font-size: 40%;
-    }    
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 40%;
+  }
 }
 
-@media screen and (max-width:1000px){
-    html{
-        font-size: 35%;
-    }
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 35%;
+  }
 }
 
-
-  .hover\:animate-gradient-slide:hover {
-    animation: gradient-slide 2s linear infinite;
-    background-size: 600% 600%;
-    background-image: linear-gradient(to right, #ff5858, #ff5858,rgb(69, 103, 255),#ff5858,#ff5858)  
+.hover\:animate-gradient-slide:hover {
+  animation: gradient-slide 2s linear infinite;
+  background-size: 600% 600%;
+  background-image: linear-gradient(
+    to right,
+    #ff5858,
+    #ff5858,
+    rgb(69, 103, 255),
+    #ff5858,
+    #ff5858
+  );
 }
-  
-  @keyframes gradient-slide {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 0;
-    }
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 0;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background:#ffffff00; 
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #5ba2ff; 
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #ff4040; 
-  }
 
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+@keyframes gradient-slide {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  .animate-gradient-move {
-    background-size: 400% 400%;
-    animation: gradientMove 8s ease infinite;
+  100% {
+    background-position: 100% 0;
   }
-  
-  body{
-    line-height: 30px;
-  }
+}
 
-  .galleryDes{
-    transition: 0.5s;
-    bottom: -100%;
-    line-height: 3.5rem;
-  }
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0;
+}
 
-  .galParent:hover .galleryDes{
-    bottom: 0;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #5ba2ff;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ff4040;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
   }
-  input:focus {
-      outline: none;
+  50% {
+    background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-move {
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+}
+
+body {
+  line-height: 30px;
+}
+
+.galleryDes {
+  transition: 0.5s;
+  bottom: -100%;
+  line-height: 3.5rem;
+}
+
+.galParent:hover .galleryDes {
+  bottom: 0;
+}
+input:focus {
+  outline: none;
+}.customScroll::-webkit-scrollbar {
+  width: 5px; 
+  border-radius: 10px;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  background: #7873f4; 
+  border-radius: 10px;/* Color of the scrollbar thumb */
+}
+
+.customScroll::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 10px;
+}

@@ -8,6 +8,7 @@ const webUrl = process.env.NEXT_APP_BACKEND;
 
 const middleware = async (req: NextApiRequest) => {
   try {
+    return;
     const requestedUrl = req.url;
     if (!requestedUrl?.includes("admin-pannel")) return;
 

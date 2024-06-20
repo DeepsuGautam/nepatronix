@@ -1,5 +1,5 @@
 import ConnectDB from "@/config/ConnectDB";
-import product from "@/models/product";
+import shop from "@/models/shop";
 import { deleteQuillImages } from "@/Quill/QuillDelete";
 import { handleQuillEdit } from "@/Quill/QuillEdit";
 import { deleteImage } from "@/utility/ImageRemove";
@@ -12,7 +12,7 @@ export const GET = async (req: any) => {
 
     const requestedUrl = req?.url;
     const idOfData = await requestedUrl?.split("/")?.pop();
-    const data = await product.findOne({ _id: idOfData });
+    const data = await shop.findOne({ _id: idOfData });
 
     if (!data) throw new Error("Data Not Found!");
     return NextResponse.json(data);
@@ -35,7 +35,7 @@ export const DELETE = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await product.findOne({ _id: idOfData });
+    const data: any = await shop.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
@@ -45,7 +45,7 @@ export const DELETE = async (req: any) => {
     await deleteQuillImages(data.content);
 
     // delete from db
-    await product.deleteOne({ _id: idOfData });
+    await shop.deleteOne({ _id: idOfData });
 
     // response
     return NextResponse.json({ error: false }, { status: 200 });
@@ -69,7 +69,7 @@ export const PUT = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await product.findOne({ _id: idOfData });
+    const data: any = await shop.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
@@ -84,13 +84,13 @@ export const PUT = async (req: any) => {
 
     if (cover && cover !== "undefined" && cover.size > 0) {
       await deleteImage(data?.image);
-      const coverImage: string = await UploadImage("products", cover);
+      const coverImage: string = await UploadImage("shops", cover);
       data.image = coverImage;
     }
 
     const newContentExist = form.get("content");
     if (newContentExist) {
-      const content = await handleQuillEdit(form, "products", data?.content);
+      const content = await handleQuillEdit(form, "shops", data?.content);
       data.content = await content;
     }
     data.title = title;

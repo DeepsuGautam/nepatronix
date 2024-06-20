@@ -1,25 +1,8 @@
 import ConnectDB from "@/config/ConnectDB";
-import product from "@/models/product";
-import { deleteQuillImages } from "@/Quill/QuillDelete";
-import { handleQuillEdit } from "@/Quill/QuillEdit";
+import slide from "@/models/slide";
 import { deleteImage } from "@/utility/ImageRemove";
 import { UploadImage } from "@/utility/UploadImage";
 import { NextResponse } from "next/server";
-
-export const GET = async (req: any) => {
-  try {
-    await ConnectDB();
-
-    const requestedUrl = req?.url;
-    const idOfData = await requestedUrl?.split("/")?.pop();
-    const data = await product.findOne({ _id: idOfData });
-
-    if (!data) throw new Error("Data Not Found!");
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error: true }, { status: 400 });
-  }
-};
 
 export const DELETE = async (req: any) => {
   try {
@@ -35,17 +18,16 @@ export const DELETE = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await product.findOne({ _id: idOfData });
+    const data: any = await slide.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
 
-    // delete image 
+    // delete image
     await deleteImage(data.image);
-    await deleteQuillImages(data.content);
 
     // delete from db
-    await product.deleteOne({ _id: idOfData });
+    await slide.deleteOne({ _id: idOfData });
 
     // response
     return NextResponse.json({ error: false }, { status: 200 });
@@ -69,7 +51,7 @@ export const PUT = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await product.findOne({ _id: idOfData });
+    const data: any = await slide.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
@@ -78,24 +60,23 @@ export const PUT = async (req: any) => {
 
     const title: string = form.get("title");
     const cover: any = form.get("cover");
-    const description: string = form.get("description");
+    const content: string = form.get("content");
+    const bg: string = form.get("bg");
+    const button1: string = form.get("button1");
+    const button2: string = form.get("button2");
 
     console.log(cover);
 
     if (cover && cover !== "undefined" && cover.size > 0) {
       await deleteImage(data?.image);
-      const coverImage: string = await UploadImage("products", cover);
+      const coverImage: string = await UploadImage("slides", cover);
       data.image = coverImage;
     }
-
-    const newContentExist = form.get("content");
-    if (newContentExist) {
-      const content = await handleQuillEdit(form, "products", data?.content);
-      data.content = await content;
-    }
     data.title = title;
-    data.description = description;
-
+    data.content = content;
+    data.bg = bg;
+    data.button1 = JSON.parse(button1);
+    data.button2 = JSON.parse(button2);
     await data.save();
 
     return NextResponse.json({ error: false }, { status: 200 });
