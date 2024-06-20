@@ -1,4 +1,5 @@
 "use client";
+import { postData } from "@/ApiRequest/PostReqs";
 import React, { useState } from "react";
 
 const ShopForm = ({ itemData }: { itemData: any }) => {
@@ -21,6 +22,9 @@ const ShopForm = ({ itemData }: { itemData: any }) => {
     if (!orderDetail?.items || parseInt(orderDetail?.items) < 0) {
       return setInvalid(true);
     }
+    const posted = await postData(orderDetail, "orders");
+    if (!posted) return setNotPlaces(true);
+    return setPlaced(true);
   };
 
   return (
@@ -108,9 +112,6 @@ const ShopForm = ({ itemData }: { itemData: any }) => {
             <button
               type="submit"
               className="w-fit bg-red-400 text-white p-[15px] text-[20px] hover:bg-red-500 hover:shadow-xl transition-all duration-300"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
             >
               Place Order
             </button>
@@ -121,9 +122,11 @@ const ShopForm = ({ itemData }: { itemData: any }) => {
                 No of items cant be 0 or in negative!
               </span>
             )}
-            <span className="pl-[10px] text-green-500">
-              Order Placed Successfully!
-            </span>
+            {placed && !invalid && !notPlaced && (
+              <span className="pl-[10px] text-green-500">
+                Order Placed Successfully!
+              </span>
+            )}
           </form>
         </>
       )}

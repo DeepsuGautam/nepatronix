@@ -25,6 +25,11 @@
     "image": "/admin/books.png"
   },
   {
+    "title": "Shop",
+    "link": "/admin-pannel/shop",
+    "image": "/admin/add-to-cart.png"
+  },
+  {
     "title": "Events",
     "link": "/admin-pannel/events",
     "image": "/admin/calendar.png"

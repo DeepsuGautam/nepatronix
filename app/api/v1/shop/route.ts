@@ -30,16 +30,28 @@ export const POST = async (req: any) => {
 
     const title: string = form.get("title");
     const cover: File = form.get("cover");
+    const icon: File = form.get("icon");
     const description: string = form.get("description");
+    const price: string = form.get("price");
+    const tags: string = form.get("tags");
+    const tagList: string[] = tags?.split(" ");
+    const productNo: string = form.get("productNo");
+    const comps : string = form.get("components");
 
     const coverImage: string = await UploadImage("shops", cover);
+    const iconPath: string = await UploadImage("shops", icon);
 
-    const content = await handleQuillReq(form, "shops");
+    const content: string = await handleQuillReq(form, "shops");
     const shops = new shop({
       title,
-      image: coverImage,
       description,
       content,
+      image: coverImage,
+      price,
+      tags: tagList,
+      icon: iconPath,
+      productNo,
+      components:JSON.parse(comps)
     });
 
     await shops.save();

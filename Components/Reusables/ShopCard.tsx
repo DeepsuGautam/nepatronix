@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import ThemeButton2 from "./ThemeButton2";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const ShopCard = ({ data }: { data: any }) => {
   return (
@@ -18,7 +19,7 @@ const ShopCard = ({ data }: { data: any }) => {
           height={100}
           alt=""
           style={{
-            width: "100px",
+            width: "75px",
             objectFit: "contain",
             objectPosition: "center",
           }}
@@ -46,12 +47,12 @@ const ShopCard = ({ data }: { data: any }) => {
             className="customScroll"
             style={{
               padding: "10px",
-              height: "280px",
+              height: "290px",
               overflowY: "scroll"
             }}
           >
             {data?.components?.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
+              <li key={index} style={{display:"flex", paddingTop:"10px"}}><FaRegCheckCircle style={{marginTop:"2.5px"}}/> &nbsp;{item}</li>
             ))}
           </ul>
         </div>

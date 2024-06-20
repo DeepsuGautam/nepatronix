@@ -42,6 +42,7 @@ export const DELETE = async (req: any) => {
 
     // delete image 
     await deleteImage(data.image);
+    await deleteImage(data.icon)
     await deleteQuillImages(data.content);
 
     // delete from db
