@@ -35,6 +35,11 @@
     "image": "/admin/calendar.png"
   },
   {
+    "title": "Achievements",
+    "link": "/admin-pannel/achievements",
+    "image": "/admin/star.png"
+  },
+  {
     "title": "Gallery",
     "link": "/admin-pannel/gallery",
     "image": "/admin/time-management.png"

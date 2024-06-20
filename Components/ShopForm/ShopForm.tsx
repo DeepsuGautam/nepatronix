@@ -15,6 +15,7 @@ const ShopForm = ({ itemData }: { itemData: any }) => {
     email: "",
     phone: "",
     items: "1",
+    address:""
   });
 
   const placeOrder = async (e: any) => {
@@ -103,6 +104,22 @@ const ShopForm = ({ itemData }: { itemData: any }) => {
                 setOrderDetail((prev: any) => ({
                   ...prev,
                   items: e?.target?.value,
+                }));
+              }}
+              required
+            />
+            <br />
+            <br />
+            <input
+              type="text"
+              placeholder="Address: Street, District, Country (Nearest Landmark)"
+              className="w-full p-[15px] text-[20px]"
+              style={{ border: "2px solid gray" }}
+              value={orderDetail?.address}
+              onChange={(e: any) => {
+                setOrderDetail((prev: any) => ({
+                  ...prev,
+                  address: e?.target?.value,
                 }));
               }}
               required

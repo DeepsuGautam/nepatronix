@@ -15,7 +15,10 @@ const schema = new mongoose.Schema({
     },itemName:{
         type:String,
         required:true
-    },
+    },address:{
+        type:String,
+        required:true,
+    }
 });
 
 const order = mongoose?.models?.order || mongoose.model("order", schema);

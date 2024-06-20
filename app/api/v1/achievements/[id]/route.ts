@@ -1,5 +1,5 @@
 import ConnectDB from "@/config/ConnectDB";
-import event from "@/models/event";
+import achievement from "@/models/achievement";
 import { deleteQuillImages } from "@/Quill/QuillDelete";
 import { handleQuillEdit } from "@/Quill/QuillEdit";
 import { deleteImage } from "@/utility/ImageRemove";
@@ -12,7 +12,7 @@ export const GET = async (req: any) => {
 
     const requestedUrl = req?.url;
     const idOfData = await requestedUrl?.split("/")?.pop();
-    const data = await event.findOne({ _id: idOfData });
+    const data = await achievement.findOne({ _id: idOfData });
 
     if (!data) throw new Error("Data Not Found!");
     return NextResponse.json(data);
@@ -32,7 +32,7 @@ export const DELETE = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await event.findOne({ _id: idOfData });
+    const data: any = await achievement.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
@@ -45,7 +45,7 @@ export const DELETE = async (req: any) => {
     await deleteQuillImages(data.content);
 
     // delete from db
-    await event.deleteOne({ _id: idOfData });
+    await achievement.deleteOne({ _id: idOfData });
 
     // response
     return NextResponse.json({ error: false }, { status: 200 });
@@ -69,7 +69,7 @@ export const PUT = async (req: any) => {
       throw new Error("Invalid ID in URL");
     }
 
-    const data: any = await event.findOne({ _id: idOfData });
+    const data: any = await achievement.findOne({ _id: idOfData });
     if (!data) {
       throw new Error("Data Not Found!");
     }
@@ -81,7 +81,7 @@ export const PUT = async (req: any) => {
 
     if (cover && cover !== "undefined" && cover.size > 0) {
       await deleteImage(data?.cover);
-      const coverImage: string = await UploadImage("events", cover);
+      const coverImage: string = await UploadImage("achievements", cover);
       data.cover = coverImage;
     }
 
@@ -90,7 +90,7 @@ export const PUT = async (req: any) => {
       let innerImage: any = await form.get(`image${i}`);
       if (innerImage && innerImage !== "undefined" && innerImage.size > 0) {
         await deleteImage(data?.images[i]);
-        const inner: string = await UploadImage("events", innerImage);
+        const inner: string = await UploadImage("achievements", innerImage);
         newInnerImages[i] = inner;
         continue;        
       }
@@ -100,7 +100,7 @@ export const PUT = async (req: any) => {
 
     const newContentExist = form.get("content");
     if (newContentExist) {
-      const content = await handleQuillEdit(form, "events", data?.content);
+      const content = await handleQuillEdit(form, "achievements", data?.content);
       data.content = await content;
     }
 

@@ -1,5 +1,6 @@
 import DashHolder from "@/AdminComponents/AdminHolders/DashHolder";
 import RelativeContactHolder from "@/AdminComponents/Contacts/RelativeContactHolder";
+import InfoAdmin from "@/AdminComponents/Informations/InfoAdmin";
 import React from "react";
 
 const page = () => {
@@ -10,8 +11,8 @@ const page = () => {
     >
       {/* contact us fixed box */}
       <RelativeContactHolder>
-        <center>No Orders</center>
-        <center>No Contacts</center>
+      <InfoAdmin type="orders"/>
+      <InfoAdmin type="contact"/>
       </RelativeContactHolder>
 
       {/* non fixwd box */}
