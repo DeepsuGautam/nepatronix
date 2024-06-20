@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +22,27 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "models/users.js", "models/unstructured.js", "models/slide.js", "models/service.js", "models/about.js", "models/product.js", "app/sitemap.xml/route.ts", "tailwind.config.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "models/users.js",
+    "models/unstructured.js",
+    "models/slide.js",
+    "models/service.js",
+    "models/about.js",
+    "models/product.js",
+    "app/sitemap.xml/route.ts",
+    "tailwind.config.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
