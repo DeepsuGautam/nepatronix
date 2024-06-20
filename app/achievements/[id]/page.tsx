@@ -34,10 +34,9 @@ const page = async ({ params }: { params: any }) => {
           }}
         >
           {data?.images?.map((item: string, index: number) => (
-            <div style={{width:"200px",display:"flex" , flexDirection:"column", justifyContent:"center"}}>
+            <div key={index} style={{width:"200px",display:"flex" , flexDirection:"column", justifyContent:"center"}}>
               <Image
                 src={`/api/files${item}`}
-                key={index}
                 alt=""
                 width={300}
                 height={300}

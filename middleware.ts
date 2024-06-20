@@ -11,6 +11,20 @@ const middleware = async (req: NextApiRequest) => {
     const requestedUrl = req.url;
     if (!requestedUrl?.includes("admin-pannel")) return;
 
+    if (requestedUrl.includes("/api/v1")) {
+      if (req.method === "POST") {
+        if (requestedUrl.includes("contact") || requestedUrl.includes("orders"))
+          return;
+      }
+      if (req.method === "GET") {
+        if (
+          !requestedUrl.includes("contact") ||
+          !requestedUrl.includes("orders")
+        )
+          return;
+      }
+    }
+
     const cookieStore = cookies();
     const token = cookieStore.get("token");
 

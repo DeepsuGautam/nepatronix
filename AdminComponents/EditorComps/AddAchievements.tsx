@@ -33,7 +33,7 @@ const AddAchievements = () => {
     //post reqs
     const formReq: boolean = await postAdminData(newFormData, "achievements");
     if (formReq) {
-      alert("Event Added Successfully!");
+      alert("Achievements Added Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");

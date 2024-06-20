@@ -35,7 +35,7 @@ const EditEvents = ({data}:{data:any}) => {
     //post reqs
     const formReq: boolean = await putAdmin(newFormData, "events", data?._id);
     if (formReq) {
-      alert("Blog Added Successfully!");
+      alert("Event Edited Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");

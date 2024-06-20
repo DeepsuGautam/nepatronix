@@ -35,7 +35,7 @@ const EditAchievements = ({data}:{data:any}) => {
     //post reqs
     const formReq: boolean = await putAdmin(newFormData, "achievements", data?._id);
     if (formReq) {
-      alert("Blog Added Successfully!");
+      alert("Achievements Edited Successfully!");
       return window.location.reload();
     } else {
       return alert("Failed to add Data!");
