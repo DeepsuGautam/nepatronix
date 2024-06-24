@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const config = {
-    experimental:  {
-        serverActions: {
-          bodySizeLimit: '30mb',
-        },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "300mb",
     },
-  }
-   
-  module.exports = config
+  },
+};
+
+module.exports = config;

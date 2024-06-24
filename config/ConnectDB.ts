@@ -7,7 +7,7 @@ const ConnectDB = async () => {
     await mongoose.connect(
       dbURL || "mongodb://127.0.0.1:27017/nepatronix_update"
     );
-    await mongoose.connection.setMaxListeners(20);
+    await mongoose.connection.setMaxListeners(50);
 
     await mongoose.connection.on("error", (error) => {
       console.log(error);
