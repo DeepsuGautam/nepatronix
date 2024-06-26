@@ -13,6 +13,6 @@ about
 team
 services
 
-
+ "start": "node server.js",
 
 //for dashboard
