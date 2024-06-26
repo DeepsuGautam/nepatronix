@@ -18,7 +18,7 @@ const postAdminData = async (formData: any, type: string) => {
   }
 };
 
-const putAdmin = async (formData: any, type: string, id:string) => {
+const putAdmin = async (formData: any, type: string, id: string) => {
   try {
     const res = await fetch(`${url}/api/v1/${type}/${id}`, {
       cache: "no-store",

@@ -36,12 +36,13 @@ export const POST = async (req: any) => {
     const tags: string = form.get("tags");
     const tagList: string[] = tags?.split(" ");
     const productNo: string = form.get("productNo");
-    const comps : string = form.get("components");
+    const comps: string = form.get("components");
 
     const coverImage: string = await UploadImage("shops", cover);
     const iconPath: string = await UploadImage("shops", icon);
 
     const content: string = await handleQuillReq(form, "shops");
+    console.log("This is product no", productNo);
     const shops = new shop({
       title,
       description,
@@ -51,7 +52,7 @@ export const POST = async (req: any) => {
       tags: tagList,
       icon: iconPath,
       productNo,
-      components:JSON.parse(comps)
+      components: JSON.parse(comps),
     });
 
     await shops.save();
