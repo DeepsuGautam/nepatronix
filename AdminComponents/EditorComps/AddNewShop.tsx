@@ -19,7 +19,7 @@ const AddNewShop = () => {
   const [components, setComponents] = useState<any[]>([]);
   const [icon, setIcon] = useState();
   const [iconBlob, setIconBlob] = useState("");
-
+  console.log("This is product number", productNo);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (
@@ -53,6 +53,7 @@ const AddNewShop = () => {
     }
     //post reqs
     const formReq: boolean = await postAdminData(newFormData, "shop");
+    console.log("This is form data", formReq);
     if (formReq) {
       alert("Item Added Successfully!");
       return window.location.reload();
