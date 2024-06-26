@@ -13,8 +13,9 @@ const schema = new mongoose.Schema({
   image: types,
   price: types,
   tags: [String],
-  components:[String],
-  icon:types,
+  components: [String],
+  icon: types,
+  productNo: { type: String, unique: true, required: true },
 });
 
 const shop = mongoose?.models?.shop || mongoose?.model("shop", schema);

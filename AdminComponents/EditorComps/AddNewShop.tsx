@@ -32,6 +32,7 @@ const AddNewShop = () => {
       !icon
     )
       return alert("Enter All Data");
+
     const newFormData: any = new FormData();
     newFormData.append("cover", image);
     newFormData.append("title", title);

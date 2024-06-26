@@ -4,6 +4,7 @@ import ThemeButton2 from "./ThemeButton2";
 import { FaRegCheckCircle } from "react-icons/fa";
 
 const ShopCard = ({ data }: { data: any }) => {
+  console.log("This is data", data);
   return (
     <div
       className="w-full max-w-[350px] min-h-[650px] text-white relative"
@@ -48,15 +49,17 @@ const ShopCard = ({ data }: { data: any }) => {
             style={{
               padding: "10px",
               height: "260px",
-              overflowY: "scroll"
+              overflowY: "scroll",
             }}
           >
             {data?.components?.map((item: string, index: number) => (
-              <li key={index} style={{display:"flex", paddingTop:"10px"}}><FaRegCheckCircle style={{marginTop:"2.5px"}}/> &nbsp;{item}</li>
+              <li key={index} style={{ display: "flex", paddingTop: "10px" }}>
+                <FaRegCheckCircle style={{ marginTop: "2.5px" }} /> &nbsp;{item}
+              </li>
             ))}
           </ul>
         </div>
-        <br/>
+        <br />
         <h1 className="text-[24px] font-bold text-black">NRs.{data?.price}</h1>
         <ThemeButton2
           link={`/shop/${data?._id}`}
